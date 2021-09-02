@@ -17,7 +17,7 @@ código para calmar mi aburrimiento.
 
 
 
-Eres el único responsable del uso que le des a este código, al estar público no tienes que darme crédito.
+Eres el único responsable del uso que le des a este código
 
 
 
