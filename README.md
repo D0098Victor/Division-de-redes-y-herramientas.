@@ -11,7 +11,8 @@ de redes, al desplegar la cantidad de subredes deseada.
 
 
 
-
+Por cierto, este es el primer programa que hago, estoy aprendiendo programación y estaba aburrido de ver el resto de tutoriales, así que me puse a crear este 
+código para calmar mi aburrimiento.
 
 
 
