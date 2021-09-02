@@ -6,11 +6,16 @@ La tercera opción y la más dificil que hice fue hacer la división de redes de
 cada subred. 
 La cuarta opción es, transformar de número decimales a binario (ejemplo: 192 == 11000000).
 
+El archivo con terminación "2.py" hace exactamente lo mismo que el primero, con la gran diferencia que, en una prueba que hice lograba una eficiencia del 6000% en la división 
+de redes, al desplegar la cantidad de subredes deseada. 
 
 
 
 
-Aviso legal: (por es es necesario, pero no tengo idea)
+
+
+
+
 Eres el único responsable del uso que le des a este código, al estar público no tienes que darme crédito.
 
 
