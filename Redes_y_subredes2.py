@@ -161,6 +161,83 @@ def Suma_Octetos(octetos, P1,P2,P3,P4,interador):
     elif interador==0:
         Imprimir_and_space(str(P1)+'.'+str(P2)+'.'+str(P3)+'.'+str(P4))
     return (str(P1),str(P2),str(P3),str(P4))
+
+#VLSM (COMPRETAMENTE EXPERIMENTAL)
+
+def VLSM():
+
+    Dirección=input('Ingresa tu ip: ')
+    P1=''
+    P2=''
+    P3=''
+    P4=''
+    suma=0
+
+    for e in Dirección:
+        if e=='.':
+            suma+=1 
+            e=''
+        if suma==0:
+            P1+=e
+        elif suma==1:
+            P2+=e
+        elif suma==2:
+            P3+=e
+        elif suma==3:
+            P4+=e
+    P1=int(P1)
+    P2=int(P2)
+    P3=int(P3)
+    P4=int(P4)
+    print(P1,'.',P2,'.',P3,'.',P4,'\n')
+
+
+    #En esta parte del código se asigna la cantidad de host para cada subred
+    print("ingresa la cantidad de host, ingresa 0 en el espacio en blanco cunado hayas terminado\n")
+    x="1"
+    subredes=[]
+    while x!="0":
+        subredes.append(input("Ingresa la cantidad de host para esta subred: "))
+        x=input()
+    print(subredes)
+
+
+
+    bits_sobrantes=[]
+    for e in subredes:
+        exponente=math.ceil(math.log2(int(e)+2))
+        bits_sobrantes.append(exponente)
+    print(bits_sobrantes)
+
+
+    host_totales=[]
+    for h in bits_sobrantes:
+        host_0=2**h
+        host_totales.append(host_0)
+    print(host_totales)
+
+
+    #este codigo no es necesario copiarla
+    def Primera_Subred(Sumatoria,c1,c2,c3,c4,):
+        print("\n")
+        Suma_Octetos(0,c1,c2,c3,c4,0)
+        Suma_Octetos(1,c1,c2,c3,c4,0)
+        Ultima_dirección=Sumatoria-2
+        Suma_Octetos((Ultima_dirección),c1,c2,c3,c4,0)
+        return Suma_Octetos((Ultima_dirección+1),c1,c2,c3,c4,0)
+
+    pasos=0
+    for mm in host_totales:
+        P1,P2,P3,P4=Primera_Subred(mm,P1,P2,P3,P4)
+
+        #esta parte le suma un número a la red de broadcast para obtener la ip de la siguiente subred.
+        P1,P2,P3,P4=Suma_Octetos(1,P1,P2,P3,P4,1)
+        
+        bits_host=32-bits_sobrantes[pasos]
+        HostMenor(bits_host,bits_sobrantes[pasos])
+        pasos+=1
+    print("\n")
+
 #División de redes(incompleto)  3
 def division_redes():
     lhjdfis=1
@@ -343,7 +420,7 @@ elec0002="si"
 while elec0002=="si" or elec0002=="sí":
     print("Espero estés teniendo un excelente día.\n")
     print("¿Qué deseas hacer?\n")
-    election01=str(input("1) CIDR a decimal punteado.\n2) De bits a números.\n3) División de redes.\n4) De números a bits.\n5) Ayuda.\n6) Salir.\n\n"))
+    election01=str(input("1) CIDR a decimal punteado.\n2) De bits a números.\n3) División de redes.\n4) De números a bits.\n5) Ayuda.\n6) VLSM experimental \n7) Salir.\n\n"))
     cls()
     if election01=="1":
         DeBitsDeRed()
@@ -374,10 +451,17 @@ while elec0002=="si" or elec0002=="sí":
         print("\n1) Puede traducir la máscara CIDR a decimal punteado.\n2) Puede traducir de binario a decimal, no hay límite de bits. \n3) Puede hacer divisiones de red, entrega multiples valores.\n4) Puede traducir números decimales a binario, no hay límite en el tamaño de los números. \n \nTen cuidado al introducir valores no señalados o espacios en blanco.")
         election01=str(input())
         cls()
-    elif election01=="6":
+    elif election01=="7":
         print("Fin del código.")
         time.sleep(3)
         exit()
+    elif election01=="6":
+        print("VLSM experimental")
+        VLSM()
+        elec0002=input("¿Quieres seleccionar otra opción? si/no: ")
+        print("")
+        if elec0002=="si" or elec0002=="sí":
+            cls()
     else:
         print("Fuera de rango.")
         elec0002=input("¿Quieres seleccionar otra opción? si/no: ")
