@@ -19,7 +19,7 @@ código para calmar mi aburrimiento.
 
 Eres el único responsable del uso que le des a este código
 
-
+actualizacion: he agregado VLSM 
 
 
 
