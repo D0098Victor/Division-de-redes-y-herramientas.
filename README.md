@@ -19,7 +19,7 @@ código para calmar mi aburrimiento.
 
 Eres el único responsable del uso que le des a este código
 
-actualizacion: he agregado VLSM 
+actualizacion: he agregado VLSM en el archivo 2.0, por favor pon en panorámico el cmd para poder ver los elementos correctamente
 
 
 
